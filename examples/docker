@@ -8,7 +8,7 @@ my %*SUB-MAIN-OPTS = :named-anywhere;
 
 #| A self-sufficient runtime for containers
 sub MAIN(*@args, *%args) {
-    #set-defaults(|%arg);
+    set-defaults(|%args);
     try {
         CATCH {
             default {
@@ -22,7 +22,8 @@ sub MAIN(*@args, *%args) {
 sub USAGE {
     CommandLine::Usage.new(
         :name( $*PROGRAM-NAME.IO.basename ),
-        :func( &command),
+        :func( &command ),
         :desc( &MAIN.candidates[0].WHY.Str ),
+        :conf( &set-defaults ),
         ).parse.say;
 }
