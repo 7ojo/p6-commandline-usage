@@ -35,6 +35,10 @@ class CommandLine::Usage::Options {
                 OPTIONS-TEXT => $filter-by-constraint ?? " [OPTIONS]" !! '',
                 OPTIONS-LIST => "Options:\n$out-options"
                 ;
+        } else {
+            $base.replace:
+                OPTIONS-TEXT => ''
+                ;
         }
     }
     
@@ -42,6 +46,8 @@ class CommandLine::Usage::Options {
         my $out = '';
         for @candidates -> $candidate {
             for $candidate.signature.params -> $param {
+                next if $param.constraint_list();
+                
                 my $short-param = '';
                 my $long-param = '';
                 my $default-value = '';

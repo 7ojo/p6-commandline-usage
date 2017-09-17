@@ -3,6 +3,8 @@ use lib 'lib';
 use Test;
 use CommandLine::Usage;
 
+plan 2;
+
 {
     #| My explanation here
     multi my-main('one', 'two') { ... }
@@ -10,20 +12,20 @@ use CommandLine::Usage;
     multi my-main('three') { ... }
     multi my-main('four') { ... }
     my $usage = CommandLine::Usage.new(
-        :command-name('my-command'),
-        :func(&my-main),
-        :constraint-list<one two>
+        :name( 'my-command' ),
+        :desc( &my-main.candidates[0].WHY.Str ),
+        :func( &my-main ),
+        :filter<one two>
         );
     my $text = $usage.parse;
-    my $versus = q:to/END/;
+    my $versus = qq:to/END/;
     
-    Usage:  my-command one two
+    Usage:\tmy-command one two
 
     My explanation here
     END
     is $text, $versus, 'my-command one two --help';
 }
-
 {
     #| Explanation of subcommand run and it's options
     multi my-main('run',
@@ -39,23 +41,25 @@ use CommandLine::Usage;
         ) { ... }
 
     my $usage = CommandLine::Usage.new(
-        :command-name('my-command'),
-        :func(&my-main),
-        :constraint-list<run>
+        :name( 'my-command' ),
+        :desc( &my-main.candidates[0].WHY.Str ),
+        :func( &my-main ),
+        :filter<run>
         );
     
     my $text = $usage.parse;
-    my $versus = q:to/END/;
+    my $versus = qq:to/END/;
     
-    Usage:  my-command run [OPTIONS]
+    Usage:\tmy-command run [OPTIONS]
 
     Explanation of subcommand run and it's options
 
     Options:
-          --project                 
-          --network                 (default "acme")
-          --domain                  (default "localhost")
-          --data-path               (default "~/.platform")
+          --project string     
+          --network string     (default "acme")
+          --domain string      (default "localhost")
+          --data-path string   (default "~/.platform")
     END
     is $text, $versus, "my-command run --help";
 }
+

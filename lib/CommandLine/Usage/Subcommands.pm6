@@ -3,7 +3,7 @@ class CommandLine::Usage::Subcommands {
     method apply($base, @filter) {
         if @filter.elems > 0 {
             $base.replace:
-                SUBCOMMANDS-TEXT => " {@filter[0]}"
+                SUBCOMMANDS-TEXT => " " ~ @filter.join(" ")
                 ;
         } else {
             my @subcommands;

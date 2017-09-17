@@ -39,6 +39,7 @@ class CommandLine::Usage {
     method clean(Str $text) returns Str {
         my $out = $text;
         $out ~~ s:g/ '<%' .*? '%>' \n ? //;
+        $out ~~ s:g/ \n ** 2..* $/\n/;
         $out;
     }
 
