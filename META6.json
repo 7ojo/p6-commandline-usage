@@ -11,6 +11,7 @@
         "CommandLine::Usage::Header"            : "lib/CommandLine/Usage/Header.pm6",
         "CommandLine::Usage::Positionals"       : "lib/CommandLine/Usage/Positionals.pm6",
         "CommandLine::Usage::Subcommands"       : "lib/CommandLine/Usage/Subcommands.pm6",
+        "CommandLine::Usage::Options"           : "lib/CommandLine/Usage/Options.pm6",
         "CommandLine::Usage"                    : "lib/CommandLine/Usage.pm6"
     },
     "source-url"    : "https://github.com/7ojo/p6-commandline-usage.git"
