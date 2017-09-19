@@ -9,6 +9,7 @@ class CommandLine::Usage::Options {
                 my Bool $got-it = False;
                 loop ( my $i=0; $i < @filter.elems; $i++ ) {
                     my $param = $candidate.signature.params[$i];
+                    next unless $param;
                     my @param-constraints = $param.constraint_list();
                     if @param-constraints[0] {
                         my Str $first-constraint = @param-constraints[0]; # Probably doesn't scale on more complicated stuff
