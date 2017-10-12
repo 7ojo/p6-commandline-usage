@@ -1,8 +1,10 @@
-# NAME [![Build Status](https://travis-ci.org/7ojo/p6-commandline-usage.svg?branch=master)](https://travis-ci.org/7ojo/p6-commandline-usage)
+# CommandLine::Usage
 
-CommandLine::Usage - Get alternative command line usage generated for you
+[![Build Status](https://travis-ci.org/7ojo/p6-commandline-usage.svg?branch=master)](https://travis-ci.org/7ojo/p6-commandline-usage) [![Build status](https://ci.appveyor.com/api/projects/status/l3i5vujymxpevn3u/branch/master?svg=true)](https://ci.appveyor.com/project/7ojo/p6-commandline-usage/branch/master)
 
-## SYNOPSIS
+Get alternative command line usage generated for you.
+
+# Synopsis
 
 Main:
 
@@ -45,18 +47,10 @@ Subcommand:
           --sig-proxy          Proxy all received signals to the process (default true)
       -h, --help bool          Print usage
 
-## BUILD STATUS
-
-| Operating System  |   Build Status  | CI Provider |
-| ----------------- | --------------- | ----------- |
-| Linux / Mac OS X  | x | Travis CI |
-| Windows 7 64-bit  | x | AppVeyor |
-
-## PROJECTS
+## Projects
 
 Listing of projects using the module:
 
 - [Platform](https://github.com/7ojo/perl6-platform) (NOT YET -- Will be)
 - [Mattermost::Bot](https://github.com/7ojo/p6-mattermost-bot) (NOT YET -- Will be)
 - [Gitlab::Reminder](https://github.com/7ojo/perl6-gitlab-reminder) (NOT YET -- Will be)
-- ...
