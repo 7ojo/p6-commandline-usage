@@ -45,9 +45,12 @@ Subcommand:
           --sig-proxy          Proxy all received signals to the process (default true)
       -h, --help bool          Print usage
 
-## DESCRIPTION
+## BUILD STATUS
 
-...
+| Operating System  |   Build Status  | CI Provider |
+| ----------------- | --------------- | ----------- |
+| Linux / Mac OS X  | x | Travis CI |
+| Windows 7 64-bit  | x | AppVeyor |
 
 ## PROJECTS
 

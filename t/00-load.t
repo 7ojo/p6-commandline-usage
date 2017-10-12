@@ -10,6 +10,7 @@ my @modules = <
     CommandLine::Usage::Header
     CommandLine::Usage::Positionals
     CommandLine::Usage::Subcommands
+    CommandLine::Usage::Options
     CommandLine::Usage
     >;
 
